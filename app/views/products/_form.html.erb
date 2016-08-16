@@ -23,10 +23,10 @@
     <%= f.input :variety %>
     <div class="row">
       <div class="col-xs-6">
-        <%= f.input :start_season %>
+        <%= f.input :start_season, as: :string, input_html: { class: 'js-datepicker'} %>
       </div>
       <div class="col-xs-6">
-        <%= f.input :end_season %>
+        <%= f.input :end_season, as: :string, input_html: { class: 'js-datepicker'} %>
       </div>
     </div>
 
