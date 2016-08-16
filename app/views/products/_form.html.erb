@@ -10,16 +10,16 @@
     <%= f.input :description %>
     <div class="row">
       <div class="col-xs-4">
-        <%= f.input :price %>
+        <%= f.input :price, placeholder: '5.00 €' %>
       </div>
       <div class="col-xs-4">
-        <%= f.input :weight %>
+        <%= f.input :weight, placeholder: 'In grams' %>
       </div>
       <div class="col-xs-4">
-        <%= f.input :stock %>
+        <%= f.input :stock, placeholder: 'Minimum 1' %>
       </div>
     </div>
-    <%= f.input :category %>
+    <%= f.input :category, collection: ['fruits-legumes', 'oeufs-cremerie', 'viandes-poissons', 'alcools-boissons'], prompt: "Select a category" %>
     <%= f.input :variety %>
     <div class="row">
       <div class="col-xs-6">
