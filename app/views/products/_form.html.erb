@@ -9,9 +9,17 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :stock %>
-    <%= f.input :price %>
-    <%= f.input :weight %>
-    <%= f.input :category %>
+    <div class="row">
+      <div class="col-xs-4">
+        <%= f.input :price %>
+      </div>
+      <div class="col-xs-4">
+       <%= f.input :weight %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.input :category %>
+      </div>
+    </div>
     <%= f.input :variety %>
     <%= f.input :start_season %>
     <%= f.input :end_season %>
