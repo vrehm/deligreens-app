@@ -1,2 +1,109 @@
-<%= render 'shared/banner' %>
-<%= render 'shared/testimonials' %>
+<div class="banner-home" style="background-image: url(<%= image_path "background.jpg" %>);">
+  <div class="banner-content">
+    <h1>Les meilleurs produits,<br>livrés chez toi !</h1>
+    <p>Le plus large choix de produits ultra-frais, garantis bio et locaux,<br>livrés gratuitement à domicile en 24 heures à Lyon et Villeurbanne</p>
+    <a class="btn btn-warning btn-lg bold">Fais ton marché</a>
+  </div>
+</div>
+<div class="wrapper-spring-wood padded-xs">
+  <div class="container padded-xs">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <!-- insert <div class="card"> -->
+        <div class="features-card text-center">
+          <div class="features-img">
+            <%= image_tag 'berry-icon.svg' %>
+          </div>
+          <div class="features-card-content">
+          <h1>Les meilleurs produits</h1>
+          <p>En direct des producteurs, garantis ultra-frais, bio et locaux</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <!-- insert <div class="card"> -->
+        <div class="features-card text-center">
+          <div class="features-img">
+            <%= image_tag 'fruits-icon.svg' %>
+          </div>
+          <div class="features-card-content">
+            <h1>Le plus large choix</h1>
+            <p>Fruits, légumes, viande, poisson, épicerie, des centaines de produits pour toutes tes envies</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <!-- insert <div class="card"> -->
+        <div class="features-card text-center">
+          <div class="features-img">
+            <%= image_tag 'delivery-icon.svg' %>
+          </div>
+          <div class="features-card-content">
+            <h1>Livraison gratuite en 24h</h1>
+            <p>A domicile où au bureau, du mardi au dimanche, gratuite dès 30 euros d’achats</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper-spring-wood padded-xs">
+<div class="categories-title text-center">
+  <h2>Nous avons ce que tu cherches</h2>
+  <br>
+  <p>Des centaines de produits pour toutes tes envies</p>
+  <br>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="category-card">
+          <div class="category-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "apples.jpg" %>);">
+            <div class="category-card-category"></div>
+            <div class="category-card-description">
+            </div>
+            <%= link_to "", products_path(category: "fruits-legumes"), class: "category-card-link" %>
+          </div>
+          <div class="category-card-name text-center">
+            <%= link_to "Fruits et Légumes", products_path(category: "fruits-legumes")%>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="category-card">
+          <div class="category-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "eggs.jpg" %>);">
+            <div class="category-card-category"></div>
+            <div class="category-card-description">
+            </div>
+            <%= link_to "", products_path(category: "oeufs-cremerie"), class: "category-card-link" %>
+          </div>
+          <div class="category-card-name text-center">
+            <%= link_to "Oeufs et Cremerie", products_path(category: "oeufs-cremerie")%>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="category-card">
+          <div class="category-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "meat.jpg" %>);">
+            <div class="category-card-category"></div>
+            <div class="category-card-description">
+            </div>
+            <%= link_to "", products_path(category: "viandes-poissons"), class: "category-card-link" %>
+          </div>
+          <div class="category-card-name text-center">
+            <%= link_to "Viandes et Poissons", products_path(category: "viandes-poissons")%>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="wrapper-spring-wood padded">
+  <%= render 'shared/testimonials' %>
+</div>
+
