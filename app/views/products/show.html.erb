@@ -2,16 +2,18 @@
   <div class="container">
     <%= link_to "All product", products_path, class: "btn btn-primary"%>
     <div class="row">
-      <div class="col-xs-8">
+      <div class="col-xs-7">
         <img alt="" src="https://unsplash.it/450/450" class= "img-responsive img-thumbnail">
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-5">
         <h1 class="text-center"> <%= @product.name.capitalize%></h1>
-        <ul class="list-item list-unstyled">
-          <li class = "vintage">
-          </li>
-        </ul>
-    </div>
+        <h4 class="text-center"> <%= @product.user.email.capitalize%></h4>
+        <!-- After we will change the email with the name! -->
+        <div class= "vintage">
+            <h5 class=""> Price: <%= @product.price%></h4>
+            <h5 class=""> Weight: <%= @product.weight%></h4>
+            <!-- <h5 class="input"> quantity: <%= @product%></h4> -->
+      </div>
   </div>
   <div class="row">
     <div class="col-xs-8">
