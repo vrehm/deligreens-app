@@ -16,6 +16,10 @@
       <h1>Alcools / Boissons</h1>
       <div class= "banner-content-border"></div>
       <p>Bieres - Jus de fruits - Sirop</p>
+    <% else %>
+      <h1>Découvrez tous nos produits</h1>
+      <div class= "banner-content-border"></div>
+      <p>Bio et Locaux</p>
     <% end %>
   </div>
 </div>
@@ -24,13 +28,21 @@
     <div class="row">
       <% @products.each do |product| %>
         <div class="col-xs-12 col-sm-4">
-          <div class="product-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "products.jpg" %>);">
-            <div class="product-card-category"></div>
-            <div class="product-card-description">
-              <h2><%= product.name.capitalize %> - <span> <%= product.weight %> g</span></h2>
-              <p> - <%= product.price %> € - <span></span></p>
+          <div class="product-card">
+            <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "products.jpg" %>);">
+              <div class="product-card-category"></div>
+              <div class="product-card-description">
+              </div>
+              <%= link_to "", product_path(product), class: "product-card-link" %>
             </div>
-            <a class="product-card-link" href="#" ></a>
+            <div class="product-card-name">
+              <h6><%= product.name.upcase %> - <%= product.weight %> G</h6>
+              <p><%= product.price %> €</p>
+              <p><span>23.2€/kg</span></p>
+            </div>
+            <div class="product-card-btn">
+              <%= link_to "Ajouter", "#", class: "btn btn-warning" %>
+            </div>
           </div>
         </div>
       <% end %>
