@@ -1,0 +1,32 @@
+.quote {
+  min-height: 75px;
+}
+
+.testimonial-card {
+  background-color: white;
+  border-radius: 2px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px rgba(11, 25, 28, 0.1);
+  padding: 2em;
+  position: relative;
+  margin-top: 3em;
+}
+
+.fb-logo {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  color: $gray-light;
+  font-size: 1.5em;
+  // &:hover { color: $gray-light }
+}
+
+.list-unstyled > li {
+  color: $secondary-color;
+}
+
+.quote-avatar {
+  padding: 1em;
+  img { margin-top: 0.5em; }
+  a { color: $primary-color-light; }
+}
