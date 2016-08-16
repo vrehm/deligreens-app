@@ -1,29 +1,28 @@
+.footer{
+  background-color: $primary-color;
+  min-height: 30vh;
+  padding-top: 15px;
+  }
+
 .share-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 15px;
 }
 .share-link {
-  flex: 0 0 24%;
   color: white;
   font-size: 18px;
   padding: 10px 0;
+  margin-top: 15px;
   text-align: center;
-  border-radius: 2px;
-  cursor: pointer;
-  &:hover {
-    color: white;
-  }
 }
+
 .bg-text {
-  background: #4a4a4a;
+  color: #4a4a4a;
 }
-.bg-email {
-  background: #aeaeae;
-}
+
 .bg-twitter {
-  background: #00a3e1;
+  background: $blue;
 }
 .bg-facebook {
   background: #3b5998;
+  color: white;
 }
