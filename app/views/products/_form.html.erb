@@ -8,21 +8,27 @@
 
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :stock %>
     <div class="row">
       <div class="col-xs-4">
         <%= f.input :price %>
       </div>
       <div class="col-xs-4">
-       <%= f.input :weight %>
+        <%= f.input :weight %>
       </div>
       <div class="col-xs-4">
-        <%= f.input :category %>
+        <%= f.input :stock %>
       </div>
     </div>
+    <%= f.input :category %>
     <%= f.input :variety %>
-    <%= f.input :start_season %>
-    <%= f.input :end_season %>
+    <div class="row">
+      <div class="col-xs-6">
+        <%= f.input :start_season %>
+      </div>
+      <div class="col-xs-6">
+        <%= f.input :end_season %>
+      </div>
+    </div>
 
     <%= f.button :submit, :class => "form-control btn btn-warning", :id => "submit_button" %>
   <% end %>
