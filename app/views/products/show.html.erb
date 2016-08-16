@@ -6,7 +6,15 @@
       </div>
       <div class="col-xs-4">
         <h1 class="text-center"> <%= @product.name.capitalize%></h1>
+        <ul class="list-item list-unstyled">
+          <li class = "vintage">
+            <strong>Description:</strong> <%= @product.description %>
+          </li>
+        </ul>
     </div>
   </div>
+  <div class="row">
+  <%= link_to "All product", products_path%>
+</div>
 </div>
 </div>
