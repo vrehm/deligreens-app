@@ -28,3 +28,8 @@
 .bold {
   font-weight: bold;
 }
+
+.wrapper-spring-wood {
+  min-height: calc(100vh - 70px);
+  background-color: $background-color;
+}
