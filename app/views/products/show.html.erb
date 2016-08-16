@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div class="container">
+    <%= link_to "All product", products_path, class: "btn btn-primary"%>
     <div class="row">
       <div class="col-xs-8">
         <img alt="" src="https://unsplash.it/450/450" class= "img-responsive img-thumbnail">
@@ -8,13 +9,14 @@
         <h1 class="text-center"> <%= @product.name.capitalize%></h1>
         <ul class="list-item list-unstyled">
           <li class = "vintage">
-            <strong>Description:</strong> <%= @product.description %>
           </li>
         </ul>
     </div>
   </div>
   <div class="row">
-  <%= link_to "All product", products_path%>
+    <div class="col-xs-8">
+      <strong class="padded"> Description:</strong> <%= @product.description %>
+  </div>
 </div>
 </div>
 </div>
