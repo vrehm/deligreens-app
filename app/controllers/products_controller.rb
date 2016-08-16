@@ -47,4 +47,8 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :description, :stock, :price, :weight, :category, :variety, :start_season, :end_season, :user_id, :published)
   end
 
+  def start_must_be_before_end_time
+    errors.add(:start_season, "must be before end season") unless start_season < end_season
+  end
+
 end
