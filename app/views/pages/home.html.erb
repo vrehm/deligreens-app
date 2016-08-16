@@ -5,8 +5,8 @@
     <a class="btn btn-warning btn-lg bold">Fais ton marché</a>
   </div>
 </div>
-<div class="wrapper-spring-wood">
-  <div class="container padded">
+<div class="wrapper-spring-wood padded-xs">
+  <div class="container padded-xs">
     <div class="row">
       <div class="col-sm-12 col-md-4">
         <!-- insert <div class="card"> -->
@@ -47,4 +47,63 @@
     </div>
   </div>
 </div>
-<%= render 'shared/testimonials' %>
+<div class="wrapper-spring-wood padded-xs">
+<div class="categories-title text-center">
+  <h2>Nous avons ce que tu cherches</h2>
+  <br>
+  <p>Des centaines de produits pour toutes tes envies</p>
+  <br>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="category-card">
+          <div class="category-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "apples.jpg" %>);">
+            <div class="category-card-category"></div>
+            <div class="category-card-description">
+            </div>
+            <%= link_to "", products_path(category: "fruits-legumes"), class: "category-card-link" %>
+          </div>
+          <div class="category-card-name text-center">
+            <%= link_to "Fruits et Légumes", products_path(category: "fruits-legumes")%>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="category-card">
+          <div class="category-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "eggs.jpg" %>);">
+            <div class="category-card-category"></div>
+            <div class="category-card-description">
+            </div>
+            <%= link_to "", products_path(category: "oeufs-cremerie"), class: "category-card-link" %>
+          </div>
+          <div class="category-card-name text-center">
+            <%= link_to "Oeufs et Cremerie", products_path(category: "fruits-legumes")%>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="category-card">
+          <div class="category-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "meat.jpg" %>);">
+            <div class="category-card-category"></div>
+            <div class="category-card-description">
+            </div>
+            <%= link_to "", products_path(category: "oeufs-cremerie"), class: "category-card-link" %>
+          </div>
+          <div class="category-card-name text-center">
+            <%= link_to "Viandes et Poissons", products_path(category: "fruits-legumes")%>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="wrapper-spring-wood padded">
+  <%= render 'shared/testimonials' %>
+</div>
+
