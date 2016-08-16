@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+attributes_product = [
+  {name: "orange",
+  description: "De délicieuse boulle de couleur oscillant entre le rouge et le jaune. Moue au millieu, dur autour",
+  stock: 22,
+  price: 9,
+  weight: "22",
+  category: "fruits",
+  variety: "agrume",
+  start_season: Date.new,
+  end_season: Date.new
+  }
+  ]
+
+orange = Product.new(attributes_product[0])
+orange.user = User.first
+puts orange.valid?
+orange.save
