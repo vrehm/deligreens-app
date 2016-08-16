@@ -1,12 +1,35 @@
 <div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8">
-        <img alt="" src="https://unsplash.it/450/450" class= "img-responsive img-thumbnail">
-      </div>
-      <div class="col-xs-4">
-        <h1 class="text-center"> <%= @product.name.capitalize%></h1>
+    <div class="container">
+        <%= link_to "All product", products_path, class: "btn btn-primary"%>
+        <div class="row">
+            <div class="col-xs-7">
+                <img alt="" src="https://unsplash.it/450/450" class="img-responsive img-thumbnail">
+            </div>
+            <div class="col-xs-5">
+                <h1 class="text-center">
+                    <%= @product.name.capitalize%></h1>
+                <h4 class="text-center">
+                    <%= @product.user.email.capitalize%></h4>
+                <!-- After we will change the email with the name! -->
+                <div class="vintage">
+                    <p>
+                        Price:
+                        <%= @product.price%></p>
+                    <p>Weight:
+                        <%= @product.weight%></p>
+                    <form action="">
+                        How many?
+                        <input type="number" placeholder="1"><br></form>
+                    <h5 class=" btn btn-default">
+                        buy some!</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <strong class="padded">
+                        Description:</strong>
+                    <%= @product.description %>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-</div>
