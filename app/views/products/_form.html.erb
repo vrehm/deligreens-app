@@ -1,3 +1,5 @@
+<% @types = Product::TYPES %>
+
 <div class="text-center padded-top-bottom-2em">
   <h2>Offer a new product</h2>
   <h4>Delight Deligreens' customers!</h4>
@@ -19,8 +21,8 @@
         <%= f.input :stock, placeholder: 'Minimum 1' %>
       </div>
     </div>
-    <%= f.input :category, collection: ['fruits-legumes', 'oeufs-cremerie', 'viandes-poissons', 'alcools-boissons'], prompt: "Select a category" %>
-    <%= f.input :variety %>
+    <%= f.input :category, collection: ['fruits-legumes', 'oeufs-cremerie', 'viandes-poissons', 'alcools-boissons'], prompt: "Select a category", input_html: { onchange: "getState()" } %>
+    <%= f.input :variety, collection: [], prompt: "Select a variety" %>
     <div class="row">
       <div class="col-xs-6">
         <%= f.input :start_season, as: :string, input_html: { class: 'js-datepicker'} %>
@@ -33,3 +35,41 @@
     <%= f.button :submit, :class => "form-control btn btn-warning", :id => "submit_button" %>
   <% end %>
 </div>
+
+<script>
+  var types = <%= @types.inspect.html_safe %>;
+  function getState() {
+      var category = $("#product_category").val();
+      if (category === 'fruits-legumes') {
+        $('#product_variety').html('<option value="">Select a variety</option>');
+        types[0].forEach(function(variety) {
+          string = '<option value=\"' + variety + '\">' + variety + '</option>';
+          $('#product_variety').append(string);
+        });
+      }
+      if (category === 'oeufs-cremerie') {
+        $('#product_variety').html('<option value="">Select a variety</option>');
+        types[1].forEach(function(variety) {
+          string = '<option value=\"' + variety + '\">' + variety + '</option>';
+          $('#product_variety').append(string);
+        });
+      }
+      if (category === 'viandes-poissons') {
+        $('#product_variety').html('<option value="">Select a variety</option>');
+        types[2].forEach(function(variety) {
+          string = '<option value=\"' + variety + '\">' + variety + '</option>';
+          $('#product_variety').append(string);
+        });
+      }
+      if (category === 'alcools-boissons') {
+        $('#product_variety').html('<option value="">Select a variety</option>');
+        types[3].forEach(function(variety) {
+          string = '<option value=\"' + variety + '\">' + variety + '</option>';
+          $('#product_variety').append(string);
+        });
+      }
+      if (category === '') {
+        $('#product_variety').html('<option>Waiting for category</option>');
+      }
+    }
+</script>
