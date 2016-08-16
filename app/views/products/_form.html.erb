@@ -1,0 +1,29 @@
+<div class="text-center padded-top-bottom-2em">
+  <h2>Offer a new product</h2>
+  <h4>Delight Deligreens' customers!</h4>
+</div>
+<div class="padded-top-bottom-2em">
+  <%= simple_form_for(@product) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :stock %>
+    <div class="row">
+      <div class="col-xs-4">
+        <%= f.input :price %>
+      </div>
+      <div class="col-xs-4">
+       <%= f.input :weight %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.input :category %>
+      </div>
+    </div>
+    <%= f.input :variety %>
+    <%= f.input :start_season %>
+    <%= f.input :end_season %>
+
+    <%= f.button :submit, :class => "form-control btn btn-warning", :id => "submit_button" %>
+  <% end %>
+</div>
