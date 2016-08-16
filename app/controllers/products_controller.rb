@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @products = Product.all
+    if params[:category]
+      @products = Product.where(category: params[:category])
+    else
+      @products = Product.all.order("created_at desc")
+    end
   end
 
   def show

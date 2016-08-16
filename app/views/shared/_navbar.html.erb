@@ -8,20 +8,20 @@
       <%= image_tag "logo.png" %>
     <% end %>
 
-    <%= link_to "#", class: "navbar-wagon-item-left" do %>
+    <%= link_to products_path(category: "fruits-legumes"), class: "navbar-wagon-item-left" do %>
       Fruits<br>Légumes
     <% end %>
 
-    <%= link_to "#", class: "navbar-wagon-item-left" do %>
-      Oeuf<br>Crèmerie
+    <%= link_to products_path(category: "oeufs-cremerie"), class: "navbar-wagon-item-left" do %>
+      Oeufs<br>Crèmerie
     <% end %>
 
-    <%= link_to "#", class: "navbar-wagon-item-left" do %>
-      Viandes<br>Poisson
+    <%= link_to products_path(category: "viandes-poissons"), class: "navbar-wagon-item-left" do %>
+      Viandes<br>Poissons
     <% end %>
 
-    <%= link_to "#", class: "navbar-wagon-item-left" do %>
-      Alcools<br>Boisson
+    <%= link_to products_path(category: "alcools-boissons"), class: "navbar-wagon-item-left" do %>
+      Alcools<br>Boissons
     <% end %>
   </div>
 
