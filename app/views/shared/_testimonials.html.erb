@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h1>Rejoins une communauté de 2000 passionnés</h1>
+
+      <div class="col-xs-6">
+        <!-- Marinanne C. testimonial's -->
+        <div class="testimonial-card">
+          <% url_marianne = "https://www.facebook.com/marianne.faure.39/posts/10156629843595051" %>
+          <p class="quote">Grand choix de produits, créneaux de livraison adaptés à nos vies à 100 à l'heure, livraison on-time et amicale, sans chichis. Bravo, je suis fan !</p>
+          <ul class="list-unstyled">
+            <li>
+              <% 5.times  do %>
+                <i class="fa fa-star"></i>
+              <% end %>
+            </li>
+          </ul>
+          <%= link_to url_marianne, target: "_blank", class: "fb-logo" do %>
+            <i class="fa fa-facebook-square"></i>
+          <% end %>
+        </div>
+        <!-- Marinanne C. avatar's -->
+        <div class="quote-avatar">
+          <%= link_to url_marianne, target: "_blank" do %>
+            <h4>Marianne C.</h4><%= image_tag 'marianne', class: "avatar-large", alt: "Marianne C." %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <!-- Gauthier A. testimonial's -->
+        <div class="testimonial-card">
+          <% url_gauthier = "https://www.facebook.com/gauthier.aube.7/posts/1777850782436370" %>
+          <p class="quote">Vive Deligreens ! Des produits frais et locaux de très bonne qualité, une livraison avec le sourire et des prix très abordables. Vous êtes au top Deligreens !</p>
+          <ul class="list-unstyled">
+            <li>
+              <% 5.times  do %>
+                <i class="fa fa-star"></i>
+              <% end %>
+            </li>
+          </ul>
+          <%= link_to url_gauthier, target: "_blank", class: "fb-logo" do %>
+            <i class="fa fa-facebook-square"></i>
+          <% end %>
+        </div>
+        <!-- Gauthier A. avatar's -->
+        <div class="quote-avatar">
+          <%= link_to url_gauthier, target: "_blank" do %>
+            <h4>Gauthier A.</h4><%= image_tag 'gauthier', class: "avatar-large", alt: "Gauthier A." %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
