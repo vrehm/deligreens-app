@@ -1,0 +1,62 @@
+<div class="profile-header-wrapper">
+  <div class="container">
+
+    <!-- Avatar and username -->
+    <div class="profile-header-infos">
+      <img src="http://placehold.it/40x40" class="avatar-large">
+      <h1><%= @user.first_name %></h1>
+      <h2><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.city %></h2>
+    </div>
+    <!-- Insert your <div class="tabs"> here -->
+    <div class="tabs">
+      <a class="tab active" href="#">
+        <h3><%= @user.products.size %></h3>
+        <p>Mes Produits</p>
+      </a>
+      <a class="tab" href="#">
+        <h3>4</h3>
+        <p>Commandes</p>
+      </a>
+      <a class="tab" href="#">
+        <h3>12</h3>
+        <p>Mes Achats</p>
+      </a>
+      <a class="tab" href="#">
+        <h3></h3>
+        <p>Infos</p>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="product-card">
+            <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "products.jpg" %>);">
+              <div class="product-card-category">
+                <%= link_to "#" do %>
+                  Public
+                <% end %>
+              </div>
+              <div class="product-card-description">
+              </div>
+              <%= link_to "", product_path(product), class: "product-card-link" %>
+            </div>
+            <div class="product-card-name">
+              <h6><%= product.name.upcase %> - <%= product.weight %> G</h6>
+              <p><%= product.price %> €</p>
+              <p><span>23.2€/kg</span></p>
+            </div>
+            <div class="product-card-btn">
+              <%= link_to "#" do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
