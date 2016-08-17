@@ -32,7 +32,7 @@
     <% if user_signed_in? %>
 
       <!-- Different navigation if login or not -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link text-center bold" do %>
+      <%= link_to edit_user_registration_path(current_user), class: "navbar-wagon-item navbar-wagon-link text-center bold" do %>
         Deviens<br>Producter
       <% end %>
 
@@ -51,18 +51,18 @@
               </li>
               <li role="separator" class="divider"></li>
               <li class= "text-center">
-                <%= link_to user_path(current_user) do %>
+                <%= link_to dashboard_path(current_user) do %>
                   Tableau de bord
+                <% end %>
+              </li>
+              <li class= "text-center">
+                <%= link_to user_path(current_user) do %>
+                  Mes Achats
                 <% end %>
               </li>
               <li class= "text-center">
                 <%= link_to edit_user_registration_path(current_user) do %>
                   Modifier mon profil
-                <% end %>
-              </li>
-              <li class= "text-center">
-                <%= link_to "#" do %>
-                  Mes Achats
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
