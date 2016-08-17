@@ -1,5 +1,5 @@
 <% @types = Product::TYPES %>
-<%= @product_types = @types.select { |type| type.include?(@product.variety) }.flatten %>
+<% @product_types = @types.select { |type| type.include?(@product.variety) }.flatten %>
 
 <div class="text-center padded-top-bottom-2em">
   <h2>Offer a new product</h2>

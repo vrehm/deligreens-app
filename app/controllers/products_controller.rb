@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :toggle_publish]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -34,6 +34,12 @@ class ProductsController < ApplicationController
   def update
     @product.update(product_params)
     redirect_to product_path(@product)
+  end
+
+  def toggle_publish
+    @product.published ? @product.published = false : @product.published = true
+    @product.update(product_params)
+    redirect_to user_path(@current_user)
   end
 
   private
