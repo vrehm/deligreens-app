@@ -3,7 +3,11 @@
         <%= link_to "All product", products_path, class: "btn btn-primary"%>
         <div class="row">
             <div class="col-xs-7">
-                <img alt="" src="https://unsplash.it/450/450" class="img-responsive img-thumbnail">
+            <% if @product.photo? %>
+              <%= cl_image_tag @product.photo.path, { :width=> "640", :crop=>"fill", :aspect_ratio=>"16:9", :gravity=>"auto" } %>
+            <% else %>
+              <img alt="" src="https://unsplash.it/450/450" class="img-responsive img-thumbnail">
+            <% end %>
             </div>
             <div class="col-xs-5">
                 <h1 class="text-center">
