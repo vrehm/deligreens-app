@@ -29,7 +29,7 @@
       <% @products.each do |product| %>
         <div class="col-xs-12 col-sm-4">
           <div class="product-card">
-            <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "products.jpg" %>);">
+            <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(<%= cl_image_path product.photo.path %>);">
               <div class="product-card-category"></div>
               <div class="product-card-description">
               </div>
