@@ -1,39 +1,67 @@
 <div class="wrapper">
     <div class="container">
-        <%= link_to "All product", products_path, class: "btn btn-primary"%>
         <div class="row">
-            <div class="col-xs-7">
-            <% if @product.photo? %>
-              <%= cl_image_tag @product.photo.path, { :width=> "640", :crop=>"fill", :aspect_ratio=>"16:9", :gravity=>"auto" } %>
-            <% else %>
-              <img alt="" src="https://unsplash.it/450/450" class="img-responsive img-thumbnail">
-            <% end %>
-            </div>
-            <div class="col-xs-5">
-                <h1 class="text-center">
-                    <%= @product.name.capitalize%></h1>
-                <h4 class="text-center">
-                    <%= @product.user.first_name.capitalize + " "  + @product.user.last_name%></h4>
-                <!-- After we will change the email with the name! -->
-                <div class="vintage">
-                    <p>
-                        Price:
-                        <%= @product.price%></p>
-                    <p>Weight:
-                        <%= @product.weight%></p>
-                    <form action="">
-                        How many?
-                        <input type="number" placeholder="1"><br></form>
-                    <h5 class=" btn btn-default">
-                        buy some!</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <strong class="padded">
-                        Description:</strong>
-                    <%= @product.description %>
-                </div>
-            </div>
-        </div>
+
+
+<div class="media">
+  <div class="media-body">
+    <div class="media-section">
+      <h2>  <% if @product.photo? %>
+        <%= cl_image_tag @product.photo.path, { :width=> "450", :crop=>"fill", :aspect_ratio=>"16:9", :gravity=>"auto" } %>
+    <% else %>
+        <img alt="" src="https://unsplash.it/450/450" class="img-responsive img-thumbnail">
+        <% end %></h2>
+
     </div>
+    <div class="media-section">
+      <!-- <h2>Description</h2> -->
+
+    </div>
+  </div>
+  <div class="media-aside">
+    <div class="media-section">
+      <h2 class="text-center">  <%= @product.name.capitalize%></h2>
+      <!-- <div class="show-product-card"> -->
+
+          <h4 class="text-center">
+              <%= @product.user.first_name.capitalize + " "  + @product.user.last_name%></h4>
+          <!-- After we will change the email with the name! -->
+          <p>
+              <h4>Description du produit
+              </h4>
+              <p>
+                  <%= @product.description %>
+              </p>
+              Price:
+              <%= @product.price%></p>
+          <p> Poid en grame :
+              <%= @product.weight%></p>
+          <form action="">
+              Combien?
+              <input type="number" placeholder="1"><br></form>
+          <h5 class=" btn btn-default btn-block">
+              buy some!</h4>
+      </div>
+      </div>      </div>
+
+      <div class="row">
+    <div class="media-section">
+            <h3>
+          <%= @product.user.farm_name.capitalize%></h3>
+      <h4>
+          <%= @product.user.first_name.capitalize + " "  + @product.user.last_name%></h4>
+      <!-- After we will change the email with the name! -->
+      <p>
+          <h4>Description de la ferme:
+          </h4>
+          <p>
+              <%= @product.user.farm_description %>
+          </p>
+          Ville :
+          <%= @product.user.city%></p>
+  </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
