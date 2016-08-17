@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -30,11 +29,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    @product.update(product_params)
+    redirect_to product_path(@product)
   end
 
   private

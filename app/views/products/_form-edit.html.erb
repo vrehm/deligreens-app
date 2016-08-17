@@ -1,4 +1,5 @@
 <% @types = Product::TYPES %>
+<%= @product_types = @types.select { |type| type.include?(@product.variety) }.flatten %>
 
 <div class="text-center padded-top-bottom-2em">
   <h2>Offer a new product</h2>
@@ -23,7 +24,7 @@
       </div>
     </div>
     <%= f.input :category, collection: ['fruits-legumes', 'oeufs-cremerie', 'viandes-poissons', 'alcools-boissons'], prompt: "Select a category" %>
-    <%= f.input :variety, collection: [], prompt: "Select a variety" %>
+    <%= f.input :variety, collection: @product_types %>
     <div class="row">
       <div class="col-xs-6">
         <%= f.input :start_season, as: :string, input_html: { class: 'js-datepicker'} %>
