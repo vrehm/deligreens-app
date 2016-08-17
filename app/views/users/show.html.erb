@@ -6,6 +6,8 @@
       <img src="http://placehold.it/40x40" class="avatar-large">
       <h1><%= @user.first_name %></h1>
       <h2><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.city %></h2>
+      <br>
+      <%= link_to "Nouveau Produit", new_product_path, class: "btn btn-warning" %>
     </div>
     <!-- Insert your <div class="tabs"> here -->
     <div class="tabs">
@@ -34,7 +36,7 @@
       <% @products.each do |product| %>
         <div class="col-xs-12 col-sm-4">
           <div class="product-card">
-            <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "products.jpg" %>);">
+            <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path product.photo.path %>);">
               <div class="product-card-category">
                 <%= link_to "#" do %>
                   Public
@@ -45,14 +47,17 @@
               <%= link_to "", product_path(product), class: "product-card-link" %>
             </div>
             <div class="product-card-name">
+            <div class="product-edit">
+              <%= link_to "#" do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
+            </div>
               <h6><%= product.name.upcase %> - <%= product.weight %> G</h6>
               <p><%= product.price %> €</p>
               <p><span>23.2€/kg</span></p>
             </div>
             <div class="product-card-btn">
-              <%= link_to "#" do %>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              <% end %>
+              <%= link_to "Retirer", new_product_path, class: "btn btn-warning" %>
             </div>
           </div>
         </div>
