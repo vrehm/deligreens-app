@@ -1,6 +1,7 @@
 // Profile header
 .profile-header-wrapper {
-  background: #53443F;
+  background: $primary-color;
+  border-top: 1px solid $primary-color-light;
 }
 
 .profile-header-infos {
@@ -13,14 +14,14 @@
   font-size: 24px;
 }
 .profile-header-infos h2 {
-  color: #928986;
+  color: $primary-color-light;
   font-size: 18px;
   font-weight: 100;
 }
 
 // Tabs
 .tabs {
-  background: #53443F;
+  background: $primary-color;
   display: flex;
   padding: 10px 10px 0 10px
 }
@@ -42,7 +43,7 @@
   margin-bottom: 0;
 }
 .tab {
-  background: #756A66;
+  background: $primary-color-medium;
   flex: 0 0 25%;
   text-align: center;
   padding: 10px 0;
