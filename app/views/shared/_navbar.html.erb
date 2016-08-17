@@ -56,6 +56,11 @@
                 <% end %>
               </li>
               <li class= "text-center">
+                <%= link_to edit_user_registration_path(current_user) do %>
+                  Modifier mon profil
+                <% end %>
+              </li>
+              <li class= "text-center">
                 <%= link_to "#" do %>
                   Mes Achats
                 <% end %>
