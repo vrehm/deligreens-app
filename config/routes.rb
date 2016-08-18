@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   resources :users, only: [:show]
+  get 'users/dashboard/:id', to: 'users#dashboard', as: :dashboard
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update]
 

@@ -1,3 +1,9 @@
+<% if current_user.producer == false %>
+  <div class="alert alert-info2 alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Remplis les infos de ton exploitation et deviens producteur partenaire Deligreens
+  </div>
+<% end %>
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -10,14 +16,16 @@
 
             <div class="form-inputs">
             <h4 class= "text-center">Infos personnelles</h4>
-            <br>
+              <br>
               <%= f.input :email, required: true, autofocus: true %>
               <%= f.input :first_name, label: "Prénom" %>
               <%= f.input :last_name, label: "Nom" %>
               <%= f.input :city, label: "Ville" %>
-            <br>
+              <br>
               <h4 class= "text-center">Infos exploitation </h4>
-            <br>
+              <br>
+              <%= f.input :producer, as: :boolean, checked_value: true, unchecked_value: false, label: "Devenir producteur partenaire Deligreens" %>
+              <br>
               <%= f.input :farm_name, label: "Nom de l'exploitation" %>
               <%= f.input :farm_description, label: "Description" %>
               <%= f.input :farm_location, label: "Ville" %>

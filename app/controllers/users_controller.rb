@@ -4,4 +4,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @products = Product.where(user_id: @user)
   end
+
+  def dashboard
+    @user = User.find(params[:id])
+    @products = Product.where(user_id: @user)
+  end
 end
