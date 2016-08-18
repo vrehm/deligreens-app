@@ -31,9 +31,15 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <!-- Different navigation if login or not -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link text-center bold" do %>
-        Deviens<br>Producter
+      <!-- Different if user is a producer or not -->
+      <% if current_user.producer %>
+        <%= link_to dashboard_path(current_user), class: "navbar-wagon-item navbar-wagon-link text-center bold" do %>
+          Tableau<br>de bord
+        <% end %>
+      <% else %>
+        <%= link_to edit_user_registration_path(current_user), class: "navbar-wagon-item navbar-wagon-link text-center bold" do %>
+          Deviens<br>Producter
+        <% end %>
       <% end %>
 
       <!-- Search link -->
@@ -52,17 +58,12 @@
               <li role="separator" class="divider"></li>
               <li class= "text-center">
                 <%= link_to user_path(current_user) do %>
-                  Tableau de bord
+                  Mes Achats
                 <% end %>
               </li>
               <li class= "text-center">
                 <%= link_to edit_user_registration_path(current_user) do %>
-                  Modifier mon profil
-                <% end %>
-              </li>
-              <li class= "text-center">
-                <%= link_to "#" do %>
-                  Mes Achats
+                  Paramètres
                 <% end %>
               </li>
               <li role="separator" class="divider"></li>
