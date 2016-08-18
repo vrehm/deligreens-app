@@ -53,7 +53,12 @@
           </div>
           <% else %>
           <div class="media-buttons text-center">
-            <%= link_to "Ajouter", new_order_path(@Product), class: "btn btn-warning" %>
+            <%= simple_form_for(@order) do |f| %>
+            <%= f.hidden_field :product, value: @product %>
+            <%= f.hidden_field :user, value: @user %>
+            <% raise %>
+            <%= f.button :submit, "ajouter", class: "btn btn-warning" %>
+            <%end%>
           </div>
         <% end %>
       </div>
