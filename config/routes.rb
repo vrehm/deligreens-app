@@ -11,7 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:create, :new]
+  resources :orders, only: [:create, :new] do
+    member do
+      patch 'pay'
+      patch 'validate'
+    end
+  end
 
   root to: 'pages#home'
 end
