@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     member do
       patch 'pay'
       patch 'validate'
+      patch 'remove_item'
     end
   end
 
