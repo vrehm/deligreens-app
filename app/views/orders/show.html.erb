@@ -9,6 +9,13 @@
       <p><%= @order.validate_order %></p>
       <p><%= link_to 'Test pending', pay_order_path(@order), method: :patch, class: "btn btn-warning" %></p>
       <p><%= link_to 'Test validate', validate_order_path(@order), method: :patch, class: "btn btn-warning" %></p>
+      <% @order.order_items.map do |item| %>
+         <ul class ="list-inline list-unstyled">
+          <li><%= item.product.name %></li>
+          <li><%= item.product.price %></li>
+          <li><%= link_to 'Test remove', remove_item_order_path(item), method: :patch, class: "btn btn-warning" %></li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
