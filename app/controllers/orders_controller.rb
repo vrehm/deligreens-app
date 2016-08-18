@@ -4,23 +4,46 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new
-    @order.user = User.find(params[:order][:user])
-    @order_items = OrderItem.new
-    @order_items.product = Product.find(params[:order][:product])
-    @order_items.order = @order
-    @order_items.quantity = params[:order][:amount]
-    @price = @order_items.product.price
-    if @order.amount
-      @order.amount += @price * @order_items.quantity
-    else
-      @order.amount = @price * @order_items.quantity
-    end
-    @order_items.save!
-    @order.order_items << @order_items
-    @order.save!
+    @user = User.find(params[:order][:user])
+
+  if  @user.orders.last == nil
+      @order = Order.new
+      @order.user = @user
+      @order_item = OrderItem.new
+      @order_item.product = Product.find(params[:order][:product])
+      @order_item.order = @order
+      @order_item.quantity = params[:order][:amount]
+      @price = @order_item.product.price
+      @order.amount = @price * @order_item.quantity
+      @order_item.save
+      @order.order_items << @order_item
+      @order.save
+      redirect_to products_path
+  elsif @user.orders.last.current_order
+    @order = @user.orders.last
+    @order_item = OrderItem.new
+    @order_item.product = Product.find(params[:order][:product])
+    @order_item.quantity = params[:order][:amount]
+    @price = @order_item.product.price
+    @order.amount += @price * @order_item.quantity
+    @order_item.save
+    @order.order_items << @order_item
+    @order.save
     redirect_to products_path
   end
+end
+
+def pending_order
+  @user = User.find(params[:order][:user])
+  @user.orders.last.current_order = false
+  @user.orders.last.pending_order = true
+end
+
+def validate_order
+  @user = User.find(params[:order][:user])
+  @user.orders.last.pending_order = false
+  @user.orders.last.validates_order = true
+end
 
   private
 
