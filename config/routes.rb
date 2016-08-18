@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :new] do
     member do
+      patch 'pay'
       patch 'validate'
     end
   end

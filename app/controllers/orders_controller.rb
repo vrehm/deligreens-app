@@ -46,17 +46,19 @@ class OrdersController < ApplicationController
   end
 end
 
-def pending_order
-  @user = User.find(params[:order][:user])
-  @user.orders.last.current_order = false
-  @user.orders.last.pending_order = true
+def pay
+  @order = Order.find(params[:id])
+  @order.current_order = false
+  @order.pending_order = true
+  @order.save
+  redirect_to user_path(current_user)
 end
 
 def validate
   @order = Order.find(params[:id])
   @order.pending_order = false
   @order.validate_order = true
-  @order.save!
+  @order.save
   redirect_to dashboard_path(current_user)
 end
 
