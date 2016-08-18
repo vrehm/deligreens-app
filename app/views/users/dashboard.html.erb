@@ -10,19 +10,19 @@
     </div>
     <!-- Insert your <div class="tabs"> here -->
     <div class="tabs">
-      <a class="tab active" href="#">
+      <a class="tab active" href="#" data-target="#products">
         <h3><%= @user.products.size %></h3>
         <p>Mes Produits</p>
       </a>
-      <a class="tab" href="#">
+      <a class="tab" href="#" data-target="#current-orders">
         <h3>4</h3>
         <p>Commandes en cours</p>
       </a>
-      <a class="tab" href="#">
+      <a class="tab" href="#" data-target="#validate-orders">
         <h3>12</h3>
         <p>Commandes validées</p>
       </a>
-      <a class="tab" href="#">
+      <a class="tab" href="#" data-target="#infos">
         <h3></h3>
         <p>Infos</p>
       </a>
@@ -32,34 +32,45 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <% @products.each do |product| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="product-card">
-            <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path product.photo.path %>);">
-              <div class="product-card-category">
-                <%= link_to "#" do %>
-                  Public
+      <div class="tab-content" id="products">
+        <% @products.each do |product| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="product-card">
+              <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path product.photo.path %>);">
+                <div class="product-card-category">
+                  <%= link_to "#" do %>
+                    Public
+                  <% end %>
+                </div>
+                <div class="product-card-description">
+                </div>
+                <%= link_to "", product_path(product), class: "product-card-link" %>
+              </div>
+              <div class="product-card-name">
+                <h6><%= product.name.upcase %> - <%= product.weight %> G</h6>
+                <p><%= product.price %> €</p>
+                <p><span>23.2€/kg</span></p>
+              </div>
+              <div class="product-card-btn">
+                <% if product.published %>
+                  <%= link_to 'Unpublish', toggle_publish_product_path(product), method: :patch, class: "btn btn-warning" %>
+                <% else %>
+                  <%= link_to 'Publish', toggle_publish_product_path(product), method: :patch, class: "btn btn-primary" %>
                 <% end %>
               </div>
-              <div class="product-card-description">
-              </div>
-              <%= link_to "", product_path(product), class: "product-card-link" %>
-            </div>
-            <div class="product-card-name">
-              <h6><%= product.name.upcase %> - <%= product.weight %> G</h6>
-              <p><%= product.price %> €</p>
-              <p><span>23.2€/kg</span></p>
-            </div>
-            <div class="product-card-btn">
-              <% if product.published %>
-                <%= link_to 'Unpublish', toggle_publish_product_path(product), method: :patch, class: "btn btn-warning" %>
-              <% else %>
-                <%= link_to 'Publish', toggle_publish_product_path(product), method: :patch, class: "btn btn-primary" %>
-              <% end %>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+      <div class="tab-content hidden" id="current-orders">
+        <p class="text-center">Commandes en cours</p>
+      </div>
+      <div class="tab-content hidden" id="validate-orders">
+        <p class="text-center">Commandes validées</p>
+      </div>
+      <div class="tab-content hidden" id="infos">
+        <p class="text-center">Infos</p>
+      </div>
     </div>
   </div>
 </div>
