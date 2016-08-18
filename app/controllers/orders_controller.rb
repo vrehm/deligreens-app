@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
       @order_item.save
       @order.order_items << @order_item
       @order.save
+      flash[:notice] = "#{@order_item.quantity} #{@order_item.product.name} ont été ajouté au panier"
       redirect_to products_path
   elsif @user.orders.last.current_order
     @order = @user.orders.last
@@ -29,6 +30,7 @@ class OrdersController < ApplicationController
     @order_item.save
     @order.order_items << @order_item
     @order.save
+    flash[:notice] = "#{@order_item.quantity} #{@order_item.product.name} ont été ajouté au panier"
     redirect_to products_path
   else
     @order = Order.new
@@ -42,6 +44,7 @@ class OrdersController < ApplicationController
     @order_item.save
     @order.order_items << @order_item
     @order.save
+    flash[:notice] = "#{@order_item.quantity} #{@order_item.product.name} ont été ajouté au panier"
     redirect_to products_path
   end
 end
