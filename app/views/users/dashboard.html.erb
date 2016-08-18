@@ -2,7 +2,11 @@
   <div class="container">
     <!-- Avatar and username -->
     <div class="profile-header-infos">
-      <img src="http://placehold.it/40x40" class="avatar-large">
+      <% if @user.photo? %>
+        <%= cl_image_tag @user.photo.path, width: 300, height: 200, crop: :fill, class: "photo-square" %>
+      <% else %>
+        <img src="http://placehold.it/100x100" class="photo-square">
+      <% end %>
       <h1><%= @user.farm_name.capitalize %></h1>
       <h2><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.farm_location %></h2>
       <br>
