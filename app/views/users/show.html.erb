@@ -2,7 +2,11 @@
   <div class="container">
     <!-- Avatar and username -->
     <div class="profile-header-infos">
-      <img src="http://placehold.it/40x40" class="avatar-medium">
+      <% if @user.avatar? %>
+        <%= cl_image_tag @user.avatar.path, width: 100, height: 100, crop: :fill, class: "avatar-large" %>
+      <% else %>
+        <img src="http://placehold.it/40x40" class="avatar-medium">
+      <% end %>
       <h1><%= @user.first_name %></h1>
       <h2><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.city %></h2>
     </div>
@@ -69,12 +73,22 @@
       <div class="tab-content hidden" id="producers">
         <div class="col-xs-12 col-sm-4">
           <div class="product-card">
-            <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(<%= image_path "products.jpg" %>);">
-              <div class="product-card-category"></div>
-              <div class="product-card-description">
+            <% if @user.photo? %>
+              <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(<%= cl_image_path @user.photo.path %>);">
+                <div class="product-card-category"></div>
+                <div class="product-card-description">
+                </div>
+                <%= link_to "#",class: "product-card-link" %>
               </div>
-              <%= link_to "#",class: "product-card-link" %>
-            </div>
+            <% else %>
+              <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('http://placehold.it/100x100');">
+                <div class="product-card-category"></div>
+                <div class="product-card-description">
+                </div>
+                <%= link_to "#",class: "product-card-link" %>
+              </div>
+            <% end %>
+
             <div class="product-card-name">
               <h6>Exploitation machin</h6>
               <p>Paris</p>

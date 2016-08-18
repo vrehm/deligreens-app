@@ -17,7 +17,11 @@
       <br>
       <% end %>
       <div class="media-back-section">
-      <img src="http://placehold.it/40x40" class="avatar-square float-left">
+      <% if @user.photo? %>
+        <%= cl_image_tag @user.photo.path, width: 200, height: 200, crop: :fill, class: "avatar-square float-left" %>
+      <% else %>
+        <img src="http://placehold.it/100x100" class="avatar-square float-left">
+      <% end %>
       <% if @product.user.farm_name %>
         <h5><%= @product.user.farm_name.upcase %></h5>
         <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @product.user.farm_location %></p>

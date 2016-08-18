@@ -21,6 +21,7 @@
               <%= f.input :first_name, label: "Prénom" %>
               <%= f.input :last_name, label: "Nom" %>
               <%= f.input :city, label: "Ville" %>
+              <%= f.input :avatar, as: :attachinary %>
               <br>
               <h4 class= "text-center">Infos exploitation </h4>
               <br>
@@ -29,6 +30,7 @@
               <%= f.input :farm_name, label: "Nom de l'exploitation" %>
               <%= f.input :farm_description, label: "Description" %>
               <%= f.input :farm_location, label: "Ville" %>
+              <%= f.input :photo, as: :attachinary %>
 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
