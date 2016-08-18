@@ -1,8 +1,12 @@
-<div class="container">
+<div class="container text-center">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-8 col-xs-offset-2">
       <p><%= @order.id %></p>
       <p><%= @order.user.first_name %></p>
+      <% @order.order_items.each do |item| %>
+        <p><%= item.product.name %> du producteur <%= item.product.user.farm_name %></p>
+      <% end %>
+      <p><%= @order.order_items.first.product.user.farm_name %></p>
       <p><%= @order.amount %></p>
       <p><%= @order.current_order %></p>
       <p><%= @order.pending_order %></p>
