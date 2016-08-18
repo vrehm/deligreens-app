@@ -51,7 +51,11 @@
               <p><span>23.2€/kg</span></p>
             </div>
             <div class="product-card-btn">
-
+              <% if product.published %>
+                <%= link_to 'Unpublish', toggle_publish_product_path(product), method: :patch, class: "btn btn-warning" %>
+              <% else %>
+                <%= link_to 'Publish', toggle_publish_product_path(product), method: :patch, class: "btn btn-primary" %>
+              <% end %>
             </div>
           </div>
         </div>
