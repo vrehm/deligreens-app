@@ -44,7 +44,9 @@
             <ul class="list-inline order-controls hidden-sm hidden-xs">
               <li>Montant: 100 €</li>
             </ul>
-            <%= link_to "Voir", root_path, class: "btn btn-warning marged-left" %>
+            <%#= link_to "Voir", root_path, class: "btn btn-warning marged-left" %>
+            <% order = Order.find(6) %>
+            <%= link_to 'Test validate', validate_order_path(order), method: :patch, class: "btn btn-warning" %>
           </div>
         </div>
       </div>
