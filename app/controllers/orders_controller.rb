@@ -4,18 +4,24 @@ class OrdersController < ApplicationController
   end
 
   def create
-    ## find in the bouton show.
-     @order = Order.new
-     @order.user = User.find(params[:order][:user])
-     @order_items = OrderItem.new
-     @order_items.product = Product.find(params[:order][:product])
-     @order_items.order = @order
-     @order_items.quantity = params[:order][:amount]
-     @price = @order_items.product.price
-     @order.amount += @price * @order_items.quantity
-     @order.order_items << @order_items
-     raise
+    @order = Order.new
+    @order.user = User.find(params[:order][:user])
+    @order_items = OrderItem.new
+    @order_items.product = Product.find(params[:order][:product])
+    @order_items.order = @order
+    @order_items.quantity = params[:order][:amount]
+    @price = @order_items.product.price
+    if @order.amount
+      @order.amount += @price * @order_items.quantity
+    else
+      @order.amount = @price * @order_items.quantity
+    end
+    @order_items.save!
+    @order.order_items << @order_items
+    @order.save!
+    redirect_to products_path
   end
+
   private
 
   def order_param
