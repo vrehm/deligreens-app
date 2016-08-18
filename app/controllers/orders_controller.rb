@@ -30,6 +30,19 @@ class OrdersController < ApplicationController
     @order.order_items << @order_item
     @order.save
     redirect_to products_path
+  else
+    @order = Order.new
+    @order.user = @user
+    @order_item = OrderItem.new
+    @order_item.product = Product.find(params[:order][:product])
+    @order_item.order = @order
+    @order_item.quantity = params[:order][:amount]
+    @price = @order_item.product.price
+    @order.amount = @price * @order_item.quantity
+    @order_item.save
+    @order.order_items << @order_item
+    @order.save
+    redirect_to products_path
   end
 end
 
