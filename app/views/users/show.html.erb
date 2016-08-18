@@ -8,19 +8,19 @@
     </div>
     <!-- Insert your <div class="tabs"> here -->
     <div class="tabs">
-      <a class="tab active" href="#">
+      <a class="tab active" href="#" data-target="#current">
         <h3>0</h3>
         <p>Achats en cours</p>
       </a>
-      <a class="tab" href="#">
+      <a class="tab" href="#" data-target="#valided">
         <h3>4</h3>
         <p>Achats validés</p>
       </a>
-      <a class="tab" href="#">
+      <a class="tab" href="#" data-target="#producers">
         <h3>12</h3>
         <p>Producteurs</p>
       </a>
-      <a class="tab" href="#">
+      <a class="tab" href="#" data-target="#infos">
         <h3></h3>
         <p>Infos</p>
       </a>
@@ -28,9 +28,22 @@
   </div>
 </div>
 <div class="wrapper">
-  <div class="container">
+  <div class="container text-center">
     <div class="row">
-
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="tab-content" id="current">
+          <p>Achats en cours</p>
+        </div>
+        <div class="tab-content hidden" id="valided">
+          <p>Achats validées</p>
+        </div>
+        <div class="tab-content hidden" id="producers">
+          <p>Producteurs</p>
+        </div>
+        <div class="tab-content hidden" id="infos">
+          <p>Infos</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
