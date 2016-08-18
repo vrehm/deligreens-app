@@ -1,1 +1,13 @@
 // Your footer style
+.footer {
+  background: $primary-color;
+  color: white;
+  a {
+    color: white;
+    font-size: 15px;
+  }
+  i {
+    margin: 0 10px;
+    font-size: 18px;
+  }
+}
