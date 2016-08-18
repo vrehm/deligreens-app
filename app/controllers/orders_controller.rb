@@ -5,8 +5,8 @@ class OrdersController < ApplicationController
 
   def create
     ## find in the bouton show.
-    # @Order = Order.new(order_param)
-    # raise
+    @Order = Order.new(order_param)
+    raise
   end
   private
 
