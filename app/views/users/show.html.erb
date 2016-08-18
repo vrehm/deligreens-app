@@ -21,7 +21,7 @@
         <p>Achats validés</p>
       </a>
       <a class="tab" href="#" data-target="#producers">
-        <h3>12</h3>
+        <h3><%= @producers.size %></h3>
         <p>Producteurs</p>
       </a>
       <a class="tab" href="#" data-target="#infos">
@@ -72,6 +72,7 @@
       </div>
       <div class="tab-content hidden" id="producers">
         <div class="col-xs-12 col-sm-4">
+        <% @producers.each do |producer| %>
           <div class="product-card">
             <% if @user.photo? %>
               <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(<%= cl_image_path @user.photo.path %>);">
@@ -88,16 +89,16 @@
                 <%= link_to "#",class: "product-card-link" %>
               </div>
             <% end %>
-
             <div class="product-card-name">
-              <h6>Exploitation machin</h6>
-              <p>Paris</p>
-              <p>Gérant: <span>Bob l'eponge</span></p>
+              <h6><%= producer.farm_name %></h6>
+              <p><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= producer.farm_location %></p>
+              <p>Gérant: <span><%= producer.first_name %> <%= producer.last_name %></span></p>
             </div>
             <div class="product-card-btn">
               <%= link_to "Voir", "#", class: "btn btn-warning" %>
             </div>
           </div>
+        <% end %>
         </div>
       </div>
       <div class="tab-content hidden" id="infos">
