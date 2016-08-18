@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @order = Order.new
+    @user = current_user
   end
 
   def new

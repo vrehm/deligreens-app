@@ -53,11 +53,16 @@
           </div>
           <% else %>
           <div class="media-buttons text-center">
-            <%= link_to "Ajouter", "#", class: "btn btn-warning" %>
+            <%= simple_form_for(@order) do |f| %>
+            <%= f.hidden_field :product, value: @product.id %>
+            <%= f.input :amount %>
+            <!-- Amount == Quantity, we do the transformation in the OrdersController -->
+            <%= f.hidden_field :user, value: @user.id %>
+            <%= f.button :submit, "ajouter", class: "btn btn-warning" %>
+            <%end%>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-

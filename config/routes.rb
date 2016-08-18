@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: [:create, :new]
+
   root to: 'pages#home'
 end
