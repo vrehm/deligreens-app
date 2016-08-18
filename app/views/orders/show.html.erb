@@ -1,4 +1,14 @@
-<p><%= order.id %></p>
-<p><%= order.user %></p>
-<p><%= order.amount %></p>
-<p><%= order.status %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p><%= @order.id %></p>
+      <p><%= @order.user.first_name %></p>
+      <p><%= @order.amount %></p>
+      <p><%= @order.current_order %></p>
+      <p><%= @order.pending_order %></p>
+      <p><%= @order.validate_order %></p>
+      <p><%= link_to 'Test pending', pay_order_path(@order), method: :patch, class: "btn btn-warning" %></p>
+      <p><%= link_to 'Test validate', validate_order_path(@order), method: :patch, class: "btn btn-warning" %></p>
+    </div>
+  </div>
+</div>
