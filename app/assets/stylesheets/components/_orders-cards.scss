@@ -1,0 +1,69 @@
+.order {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  background: white;
+  transition: all 0.15s ease;
+}
+
+/* Body design */
+.order-body {
+  flex: 1 1 auto;
+}
+.order-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.order-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+/* order image */
+.order-image {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 130px;
+  height: 100px;
+}
+
+/* Upvote design */
+.order-status {
+  padding-right: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  margin: 2px 0 0;
+}
+
+/* Controls design */
+.order-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.order-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #E6E6E6;
+}
+.order-controls a:hover {
+  color: #D3473C !important
+}
+.order-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.order:hover {
+  background: $gray-lighter;
+  cursor: pointer;
+}

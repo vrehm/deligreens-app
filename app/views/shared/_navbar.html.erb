@@ -31,6 +31,11 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
+     <!-- For all users signed_in -->
+      <%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-link text-center bold" do %>
+        Mes<br>Achats
+      <% end %>
+
       <!-- Different if user is a producer or not -->
       <% if current_user.producer %>
         <%= link_to dashboard_path(current_user), class: "navbar-wagon-item navbar-wagon-link text-center bold" do %>
@@ -40,11 +45,6 @@
         <%= link_to edit_user_registration_path(current_user), class: "navbar-wagon-item navbar-wagon-link text-center bold" do %>
           Deviens<br>Producter
         <% end %>
-      <% end %>
-
-      <!-- Search link -->
-      <%= link_to "#", class: "navbar-wagon-link" do %>
-        <i class="fa fa-search" aria-hidden="true"></i>
       <% end %>
 
       <!-- User Dropdown -->
@@ -57,16 +57,10 @@
               </li>
               <li role="separator" class="divider"></li>
               <li class= "text-center">
-                <%= link_to user_path(current_user) do %>
-                  Mes Achats
-                <% end %>
-              </li>
-              <li class= "text-center">
                 <%= link_to edit_user_registration_path(current_user) do %>
                   Paramètres
                 <% end %>
               </li>
-              <li role="separator" class="divider"></li>
               <li class= "text-center">
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   Deconnexion
@@ -82,11 +76,6 @@
       <% end %>
 
     <% else %>
-      <!-- Search link -->
-      <%= link_to "#", class: "navbar-wagon-link" do %>
-        <i class="fa fa-search" aria-hidden="true"></i>
-      <% end %>
-
       <!-- Log in / Sign up dropdown -->
         <div class="navbar-wagon-item navbar-wagon-link">
           <div class="dropdown">
