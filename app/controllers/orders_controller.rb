@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
       @order_item.save
       @order.order_items << @order_item
       @order.save
+      flash[:notice] = "#{@order_item.quantity} #{@order_item.product.name} ont été ajouté au panier"
       redirect_to products_path
   elsif @user.orders.last.current_order
     @order = @user.orders.last
@@ -29,6 +30,7 @@ class OrdersController < ApplicationController
     @order_item.save
     @order.order_items << @order_item
     @order.save
+    flash[:notice] = "#{@order_item.quantity} #{@order_item.product.name} ont été ajouté au panier"
     redirect_to products_path
   else
     @order = Order.new
@@ -42,20 +44,25 @@ class OrdersController < ApplicationController
     @order_item.save
     @order.order_items << @order_item
     @order.save
+    flash[:notice] = "#{@order_item.quantity} #{@order_item.product.name} ont été ajouté au panier"
     redirect_to products_path
   end
 end
 
-def pending_order
-  @user = User.find(params[:order][:user])
-  @user.orders.last.current_order = false
-  @user.orders.last.pending_order = true
+def pay
+  @order = Order.find(params[:id])
+  @order.current_order = false
+  @order.pending_order = true
+  @order.save
+  redirect_to user_path(current_user)
 end
 
-def validate_order
-  @user = User.find(params[:order][:user])
-  @user.orders.last.pending_order = false
-  @user.orders.last.validates_order = true
+def validate
+  @order = Order.find(params[:id])
+  @order.pending_order = false
+  @order.validate_order = true
+  @order.save
+  redirect_to dashboard_path(current_user)
 end
 
   private

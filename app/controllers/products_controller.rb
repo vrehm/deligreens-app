@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
 
   def toggle_publish
     @product.published ? @product.published = false : @product.published = true
-    @product.save!
+    @product.save
     redirect_to dashboard_path(current_user)
   end
 
