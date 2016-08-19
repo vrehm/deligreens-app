@@ -17,8 +17,8 @@
       <br>
       <% end %>
       <div class="media-back-section">
-      <% if @user.photo? %>
-        <%= cl_image_tag @user.photo.path, width: 200, height: 200, crop: :fill, class: "avatar-square float-left" %>
+      <% if @product.user.photo? %>
+        <%= cl_image_tag @product.user.photo.path, width: 200, height: 200, crop: :fill, class: "avatar-square float-left" %>
       <% else %>
         <img src="http://placehold.it/100x100" class="avatar-square float-left">
       <% end %>
@@ -56,15 +56,17 @@
             <%= link_to "Unpublish", "#", class: "btn btn-warning" %>
           </div>
           <% else %>
-          <div class="media-buttons text-center">
-            <%= simple_form_for(@order) do |f| %>
-            <%= f.hidden_field :product, value: @product.id %>
-            <%= f.input :amount %>
-            <!-- Amount == Quantity, we do the transformation in the OrdersController -->
-            <%= f.hidden_field :user, value: @user.id %>
-            <%= f.button :submit, "ajouter", class: "btn btn-warning" %>
-            <%end%>
-          </div>
+          <% if current_user %>
+            <div class="media-buttons text-center">
+              <%= simple_form_for(@order) do |f| %>
+              <%= f.hidden_field :product, value: @product.id %>
+              <%= f.input :amount %>
+              <!-- Amount == Quantity, we do the transformation in the OrdersController -->
+              <%= f.hidden_field :user, value: current_user.id %>
+              <%= f.button :submit, "ajouter", class: "btn btn-warning" %>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
