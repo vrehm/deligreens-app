@@ -38,7 +38,7 @@
             <div class="product-card-name">
               <h6><%= product.name.upcase %> - <%= product.weight %> G</h6>
               <p><%= product.price %> €</p>
-              <p><span><%= (product.price / product.weight * 1000) %> € / kg</span></p>
+              <p><span><%= (product.price / product.weight * 1000).round(2) %> € / kg</span></p>
             </div>
             <% if current_user %>
               <div class="quantity_form">
