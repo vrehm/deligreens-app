@@ -50,6 +50,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def remove_item
+    @item = OrderItem.find(params[:id])
+    @order = @item.order
+    @amount = @order.amount - (@item.product.price * @item.quantity)
+    @order.amount = @amount
+    @item.delete
+    @order.save
+    redirect_to order_path(@order)
+  end
+
   def pay
     @order = Order.find(params[:id])
     @order.current_order = false
