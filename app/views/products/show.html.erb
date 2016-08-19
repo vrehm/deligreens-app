@@ -46,10 +46,6 @@
           <p>Poids: <%= @product.weight %> Grammes</p>
           <p>Prix: <%= @product.price %> €</p>
           <p> En stock: <%= @product.stock %> <i class="fa fa-check" aria-hidden="true"></i></p>
-          <p>Quantité : </p>
-          <div class="input-xs">
-            <input type="number" class="form-control" id="Quantity" placeholder="1">
-          </div>
         </div>
         <% if @product.user == current_user %>
           <div class="media-buttons text-center">
@@ -57,13 +53,13 @@
           </div>
           <% else %>
           <% if current_user %>
-            <div class="media-buttons text-center">
+            <div class="media-buttons-quantity text-center">
               <%= simple_form_for(@order) do |f| %>
               <%= f.hidden_field :product, value: @product.id %>
-              <%= f.input :amount %>
+              <%= f.input :amount, label: "Quantité"%>
               <!-- Amount == Quantity, we do the transformation in the OrdersController -->
               <%= f.hidden_field :user, value: current_user.id %>
-              <%= f.button :submit, "ajouter", class: "btn btn-warning" %>
+              <%= f.button :submit, "Ajouter", class: "btn btn-warning" %>
               <% end %>
             </div>
           <% end %>

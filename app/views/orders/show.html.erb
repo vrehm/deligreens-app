@@ -38,7 +38,7 @@
               <h4 class="primary-color-light">Total : <%= @order.amount %> €</h4>
               <br>
               <% if @order.current_order %>
-                <%= link_to 'Valider', pay_order_path(@order), method: :patch, class: "btn btn-warning" %>
+                <%= link_to 'Envoyer', pay_order_path(@order), method: :patch, class: "btn btn-warning" %>
               <% elsif @order.pending_order %>
                 <p><i class="fa fa-refresh" aria-hidden="true"></i> <br>Commande en attente de validation </p>
               <% else %>
@@ -46,6 +46,10 @@
               <% end %>
             </div>
           </div>
+          <br>
+          <br>
+          <br>
+          <p class="text-center"><%= link_to 'Valider', validate_order_path(@order), method: :patch, class: "btn btn-warning" %></p>
         </div>
       </div>
     </div>
@@ -53,4 +57,3 @@
 </div>
 <br>
 <br>
-<p><%= link_to 'Test validate', validate_order_path(@order), method: :patch, class: "btn btn-warning" %></p>
