@@ -47,10 +47,14 @@
         <% end %>
       <% end %>
 
-      <!-- User Dropdown -->
-        <div class="navbar-wagon-item navbar-wagon-link">
+      <!-- Profile picture and dropdown -->
+        <div class="navbar-wagon-item">
           <div class="dropdown">
-            <i class="fa fa-user dropdown-toggle" id="navbar-wagon-menu", data-toggle="dropdown"></i>
+            <% if current_user.avatar? %>
+               <%= cl_image_tag current_user.avatar.path, width: 60, height: 60, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-muse-menu", :"data-toggle" => "dropdown" %>
+            <% else %>
+              <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            <% end %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
               <li>
                 <h5 class= "text-center">Mon compte</h5>
@@ -69,7 +73,6 @@
             </ul>
           </div>
         </div>
-
       <!-- Basket dropdown -->
       <%= link_to user_path(current_user), class: "navbar-wagon-link" do %>
         <i class="fa fa-shopping-basket" aria-hidden="true"></i>
