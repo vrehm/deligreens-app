@@ -38,7 +38,7 @@
             <div class="product-card-name">
               <h6><%= product.name.upcase %> - <%= product.weight %> G</h6>
               <p><%= product.price %> €</p>
-              <p><span>23.2€/kg</span></p>
+              <p><span><%= (product.price / product.weight * 1000) %> € / kg</span></p>
             </div>
             <div class="product-card-btn">
               <%= link_to "Ajouter", "#", class: "btn btn-warning" %>

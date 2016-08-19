@@ -4,10 +4,18 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:category]
-      @products = Product.where(category: params[:category])
-    else
-      @products = Product.all.order("created_at desc")
+    if current_user
+      if params[:category]
+        @products = Product.where(category: params[:category]).where.not(user_id: current_user)
+      else
+        @products = Product.all.order("created_at desc").where.not(user_id: current_user)
+      end
+    else # user not logged
+      if params[:category] # in one category ?
+        @products = Product.where(category: params[:category])
+      else
+        @products = Product.all.order("created_at desc")
+      end
     end
   end
 
