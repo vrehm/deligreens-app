@@ -4,7 +4,11 @@
     <div class='order-status'>
       <i class="fa fa-check green" aria-hidden="true"></i>
     </div>
-    <img src="http://placehold.it/100x100" class="avatar-large marged-right hidden-xs">
+    <% if order.user.photo? %>
+      <div class="product-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(<%= cl_image_path order.user.photo.path %>);">
+    <% else %>
+      <img src="http://placehold.it/100x100" class="avatar-large marged-right hidden-xs">
+    <% end %>
     <div class='order-body'>
       <h3 class="primary-color-medium"><%= order.user.first_name %> <%= order.user.last_name %></h3>
       <p>Commande n° <%= order.id %> // <%= order.order_items.count %> produits</p>
