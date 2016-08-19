@@ -1,0 +1,75 @@
+.item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  background: white;
+  transition: all 0.15s ease;
+  margin: 10px 0;
+}
+
+/* Body design */
+.item-body {
+  flex: 1 1 auto;
+}
+.item-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.item-body h4 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 0;
+}
+.item-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+/* item image */
+.item-image {
+  border-radius: 10px;
+  width: 130px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+/* Status design */
+.item-status {
+  padding-right: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  margin: 2px 0 0;
+}
+
+/* Controls design */
+.item-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.item-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #E6E6E6;
+}
+.item-controls a:hover {
+  color: #D3473C !important
+}
+.item-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.item:hover {
+  background: $gray-lighter;
+  cursor: pointer;
+}
