@@ -45,7 +45,11 @@
               <div class='order-status'>
                 <i class="fa fa-refresh primary-color-medium" aria-hidden="true"></i>
               </div>
-              <img src="http://placehold.it/100x100" class="order-image hidden-xs">
+              <% if order.order_items.first.product.user.photo? %>
+                <%= cl_image_tag order.order_items.first.product.user.photo.path, width: 260, height: 200, crop: :fill, class: "item-image hidden-xs" %>
+              <% else %>
+                <img src="http://placehold.it/100x100" class="item-image hidden-xs">
+              <% end %>
               <div class='order-body'>
                 <h3 class="primary-color-medium"><%= order.order_items.first.product.user.farm_name %></h3>
                 <p>Commande n° <%= order.id %> // <%= order.order_items.count %> produits</p>
@@ -69,7 +73,11 @@
               <div class='order-status'>
                 <i class="fa fa-check green" aria-hidden="true"></i>
               </div>
-              <img src="http://placehold.it/100x100" class="order-image hidden-xs">
+              <% if order.order_items.first.product.user.photo? %>
+                <%= cl_image_tag order.order_items.first.product.user.photo.path, width: 260, height: 200, crop: :fill, class: "item-image hidden-xs" %>
+              <% else %>
+                <img src="http://placehold.it/100x100" class="item-image hidden-xs">
+              <% end %>
               <div class='order-body'>
                 <h3 class="primary-color-medium"><%= order.order_items.first.product.user.farm_name %></h3>
                 <p>Commande n° <%= order.id %> // <%= order.order_items.count %> produits</p>
