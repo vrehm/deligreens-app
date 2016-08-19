@@ -19,11 +19,11 @@
         <p>Mes Produits</p>
       </a>
       <a class="tab" href="#" data-target="#pending-orders">
-        <h3>4</h3>
+        <h3><%= @pending_order_farmers.count %></h3>
         <p>Commandes en cours</p>
       </a>
       <a class="tab" href="#" data-target="#validate-orders">
-        <h3>12</h3>
+        <h3><%= @validate_order_farmers.count %></h3>
         <p>Commandes validées</p>
       </a>
       <a class="tab" href="#" data-target="#infos">
