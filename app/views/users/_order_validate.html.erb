@@ -5,7 +5,7 @@
       <i class="fa fa-check green" aria-hidden="true"></i>
     </div>
     <% if order.user.avatar? %>
-      <img src="<%= cl_image_path order.user.avatar.path %>" class="avatar-large marged-right hidden-xs">
+      <%= cl_image_tag order.user.avatar.path, width: 200, height: 200, crop: :fill, class: "avatar-large marged-right hidden-xs" %>
     <% else %>
       <img src="http://placehold.it/100x100" class="avatar-large marged-right hidden-xs">
     <% end %>
