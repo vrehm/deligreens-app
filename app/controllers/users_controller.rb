@@ -29,21 +29,21 @@ class UsersController < ApplicationController
     end
 
       ### That is for validating!
-      # @validate_order_farmers = []
+       @validate_order_farmers = []
       # ## Trouver les validates orders :
-      # validate_orders = Order.where(current_order: true)
+       validate_orders = Order.where(validate_order: true)
       # ## Regarder dans ces validates les orders items
-      # validate_orders.each do |orders_items|
+       validate_orders.each do |orders_items|
       # ## Regarder dans ces validates les produit
-      #   orders_items.products.each do |product_from_order|
+         orders_items.products.each do |product_from_order|
       #     ## [product1, product 2]
-      #     if product_from_order.user == @farmer
-      #       product_from_order.order_items.each do |order_item|
-      #         @validate_order_farmers << order_item.order unless @validate_order_farmers.include?(order_item.order)
-      #       end
-      #     end
-        # end
-  # end
+           if product_from_order.user == @farmer
+             product_from_order.order_items.each do |order_item|
+               @validate_order_farmers << order_item.order unless @validate_order_farmers.include?(order_item.order)
+             end
+           end
+       end
+   end
     # Order = [Order de quoi] De tout les produits qu'à le fermier.
     # products.each.order_items.each.order
     # @product.order_items.order.orders_items.products.all
