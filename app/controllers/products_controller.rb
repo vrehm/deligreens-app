@@ -6,15 +6,15 @@ class ProductsController < ApplicationController
   def index
     if current_user
       if params[:category]
-        @products = Product.where(category: params[:category]).where.not(user_id: current_user)
+        @products = Product.where(category: params[:category]).where.not(user_id: current_user).where.not(published: false)
       else
-        @products = Product.all.order("created_at desc").where.not(user_id: current_user)
+        @products = Product.all.order("created_at desc").where.not(user_id: current_user).where.not(published: false)
       end
     else # user not logged
       if params[:category] # in one category ?
-        @products = Product.where(category: params[:category])
+        @products = Product.where(category: params[:category]).where.not(published: false)
       else
-        @products = Product.all.order("created_at desc")
+        @products = Product.all.order("created_at desc").where.not(published: false)
       end
     end
   end
