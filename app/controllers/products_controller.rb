@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @order = Order.new
     if current_user
       if params[:category]
         @products = Product.where(category: params[:category]).where.not(user_id: current_user).where.not(published: false)

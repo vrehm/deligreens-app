@@ -4,7 +4,7 @@
   padding: 40px 0px;
 }
 .product-card {
-  height: 325px;
+  height: 350px;
   background: white;
   margin: 20px 10px;
   position: relative;
@@ -20,7 +20,7 @@
 .product-card-name {
   color: $primary-color-light;
   position: absolute;
-  bottom: 0px;
+  bottom: 15px;
   left: 15px;
   h6 {
     font-weight: bold;
@@ -36,8 +36,15 @@
 }
 .product-card-btn {
   position: absolute;
-  bottom: 15px;
+  bottom: 20px;
   right: 15px;
+}
+
+.quantity_input {
+  position: absolute;
+  bottom: 55px;
+  right: 15px;
+  width: 87px;
 }
 
 .product-card-user {
