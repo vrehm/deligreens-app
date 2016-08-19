@@ -1,0 +1,23 @@
+<% @pending_order_farmers.each do |order| %>
+  <div class="order">
+    <div class='order-status'>
+      <i class="fa fa-refresh primary-color-medium" aria-hidden="true"></i>
+      <i class="fa fa-check green" aria-hidden="true"></i>
+    </div>
+    <!-- Photo user -->
+    <img src="http://placehold.it/100x100" class="hidden-xs avatar-large marged-right">
+    <!-- body for user -->
+
+    <div class='order-body'>
+      <h3 class="primary-color-medium"> <%= order.user.first_name %> <%= order.user.last_name %></h3>
+      <p><% order.products.each do | product_specific| %>
+        <p> <%= product_specific.name %> </p>
+      <% end %>
+      </p>
+    </div>
+    <ul class="list-inline order-controls hidden-sm hidden-xs">
+      <li>Montant: <%= order.amount %> €</li>
+    </ul>
+    <%= link_to "Voir", order_path(order), class: "btn btn-warning marged-left" %>
+  </div>
+<%end%>

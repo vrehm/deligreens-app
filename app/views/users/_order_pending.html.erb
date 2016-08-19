@@ -1,7 +1,4 @@
-<% product.order_items.each do |order_items| %>
-      <% order = order_items.order%>
-      <% order_items.order.products.each do |order_product| %>
-
+<% @pending_order_farmers.each do |order| %>
   <div class="order">
     <div class='order-status'>
       <i class="fa fa-refresh primary-color-medium" aria-hidden="true"></i>
@@ -11,16 +8,15 @@
     <!-- body for user -->
 
     <div class='order-body'>
-      <h3 class="primary-color-medium"> <%= order_product.user.first_name %> <%= order_product.user.last_name %></h3>
+      <h3 class="primary-color-medium"> <%= order.user.first_name %> <%= order.user.last_name %></h3>
       <p><% order.products.each do | product_specific| %>
-      <p> <%= product_specific.name %> </p>
+        <p> <%= product_specific.name %> </p>
       <% end %>
       </p>
     </div>
     <ul class="list-inline order-controls hidden-sm hidden-xs">
       <li>Montant: <%= order.amount %> €</li>
     </ul>
-    <%= link_to "Voir", root_path, class: "btn btn-warning marged-left" %>
+    <%= link_to "Voir", order_path(order), class: "btn btn-warning marged-left" %>
   </div>
-<% end %>
-<% end %>
+<%end%>
