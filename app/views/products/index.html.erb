@@ -45,7 +45,7 @@
                 <%= simple_form_for(@order) do |f| %>
                   <%= f.hidden_field :product, value: product.id %>
                   <div class="quantity_input">
-                    <%= f.input :amount, label: false, placeholder: "1" %>
+                    <%= f.input :amount, input_html: {value: '1'}, label: false%>
                   </div>
                   <%= f.hidden_field :user, value: current_user.id %>
                   <div class="product-card-btn">
